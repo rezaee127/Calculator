@@ -104,8 +104,7 @@ class MainActivity : AppCompatActivity() {
                 binding.text.text = ""
                 binding.textView.text = "$a+"
                 operator = "+"
-            }else
-                delete()
+            }
         }
         binding.bd.setOnClickListener {
             Toast.makeText(this,"${binding.bd.text}",Toast.LENGTH_SHORT).show()
@@ -115,8 +114,7 @@ class MainActivity : AppCompatActivity() {
                 binding.text.text = ""
                 binding.textView.text = "$a/"
                 operator = "/"
-            }else
-                delete()
+            }
         }
         binding.bmul.setOnClickListener {
             Toast.makeText(this,"${binding.bmul.text}",Toast.LENGTH_SHORT).show()
@@ -126,8 +124,7 @@ class MainActivity : AppCompatActivity() {
                 binding.text.text = ""
                 binding.textView.text = "$a*"
                 operator = "*"
-            }else
-                delete()
+            }
         }
         binding.bmin.setOnClickListener {
             Toast.makeText(this,"${binding.bmin.text}",Toast.LENGTH_SHORT).show()
@@ -137,8 +134,7 @@ class MainActivity : AppCompatActivity() {
                 binding.text.text = ""
                 binding.textView.text = "$a-"
                 operator = "-"
-            }else
-                delete()
+            }
         }
 
         binding.be.setOnClickListener {
@@ -172,8 +168,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
-            }else
-                delete()
+            }
             flag=false
         }
     }
