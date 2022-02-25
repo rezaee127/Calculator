@@ -94,9 +94,11 @@ class MainActivity : AppCompatActivity() {
             binding.textView.text = "" + binding.textView.text + binding.bn.text
             binding.text.text = "" + binding.text.text + binding.bn.text
             Toast.makeText(this,"${binding.bn.text}",Toast.LENGTH_SHORT).show()
+            binding.bn.isEnabled=false
         }
 
         binding.ba.setOnClickListener {
+            binding.bn.isEnabled=true
             Toast.makeText(this,"${binding.ba.text}",Toast.LENGTH_SHORT).show()
             if ( binding.text.text!="") {
                 flag = true
@@ -107,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.bd.setOnClickListener {
+            binding.bn.isEnabled=true
             Toast.makeText(this,"${binding.bd.text}",Toast.LENGTH_SHORT).show()
             if ( binding.text.text!="") {
                 flag = true
@@ -117,6 +120,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.bmul.setOnClickListener {
+            binding.bn.isEnabled=true
             Toast.makeText(this,"${binding.bmul.text}",Toast.LENGTH_SHORT).show()
             if ( binding.text.text!="") {
                 flag = true
@@ -127,6 +131,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.bmin.setOnClickListener {
+            binding.bn.isEnabled=true
             Toast.makeText(this,"${binding.bmin.text}",Toast.LENGTH_SHORT).show()
             if ( binding.text.text!="") {
                 flag = true
@@ -138,6 +143,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.be.setOnClickListener {
+            binding.bn.isEnabled=true
             Toast.makeText(this,"${binding.be.text}",Toast.LENGTH_SHORT).show()
             if (flag && binding.text.text!="") {
                 b = binding.text.text.toString().toFloat()
