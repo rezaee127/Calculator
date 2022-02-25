@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.ba.setOnClickListener {
-            binding.bn.isEnabled=true
+            beClick()
             Toast.makeText(this,"${binding.ba.text}",Toast.LENGTH_SHORT).show()
             if ( binding.text.text!="") {
                 flag = true
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
             noClick()
         }
         binding.bd.setOnClickListener {
-            binding.bn.isEnabled=true
+            beClick()
             Toast.makeText(this,"${binding.bd.text}",Toast.LENGTH_SHORT).show()
             if ( binding.text.text!="") {
                 flag = true
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             noClick()
         }
         binding.bmul.setOnClickListener {
-            binding.bn.isEnabled=true
+            beClick()
             Toast.makeText(this,"${binding.bmul.text}",Toast.LENGTH_SHORT).show()
             if ( binding.text.text!="") {
                 flag = true
@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
             noClick()
         }
         binding.bmin.setOnClickListener {
-            binding.bn.isEnabled=true
+            beClick()
             Toast.makeText(this,"${binding.bmin.text}",Toast.LENGTH_SHORT).show()
             if ( binding.text.text!="") {
                 flag = true
@@ -149,6 +149,7 @@ class MainActivity : AppCompatActivity() {
         binding.be.setOnClickListener {
             Click()
             binding.bn.isEnabled=true
+            binding.be.isClickable=false
             Toast.makeText(this,"${binding.be.text}",Toast.LENGTH_SHORT).show()
             if (flag && binding.text.text!="") {
                 b = binding.text.text.toString().toFloat()
@@ -176,7 +177,6 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this,"Divide by zero",Toast.LENGTH_SHORT).show()
                         delete()
                     }
-
                 }
 
             }
@@ -197,6 +197,11 @@ class MainActivity : AppCompatActivity() {
         binding.bd.isClickable=true
         binding.bmin.isClickable=true
         binding.bmul.isClickable=true
+    }
+
+    private fun beClick(){
+        binding.be.isClickable=true
+        binding.bn.isEnabled=true
     }
 
     private fun textSize() {
