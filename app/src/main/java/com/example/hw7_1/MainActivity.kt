@@ -3,15 +3,19 @@ package com.example.hw7_1
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.example.hw7_1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+
     var a = 0F
     var b = 0F
+    var x="0"
     var operator = ""
     var flag = false
+    lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         onClick()
 
-
         binding.delete.setOnClickListener {
             delete()
         }
@@ -34,145 +37,110 @@ class MainActivity : AppCompatActivity() {
         a = 0F
         b = 0F
         binding.textView.text = "0"
-        binding.text.text = "0"
+        x = "0"
+        operatorsClickable()
+        bEqual_bDot_Clickable()
 }
 
     @SuppressLint("SetTextI18n")
     private fun onClick() {
-        binding.b0.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b0.text
-            binding.text.text = "" + binding.text.text + binding.b0.text
-            Toast.makeText(this,"${binding.b0.text}",Toast.LENGTH_SHORT).show()
+        val arrayOfButtonNumbers= arrayListOf(binding.b1,binding.b0
+            ,binding.b4,binding.b5,binding.b6,binding.b7,binding.b8
+            ,binding.b9,binding.b2,binding.b3)
 
-        }
-        binding.b1.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b1.text
-            binding.text.text = "" + binding.text.text + binding.b1.text
-            Toast.makeText(this,"${binding.b1.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.b2.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b2.text
-            binding.text.text = "" + binding.text.text + binding.b2.text
-            Toast.makeText(this,"${binding.b2.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.b3.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b3.text
-            binding.text.text = "" + binding.text.text + binding.b3.text
-            Toast.makeText(this,"${binding.b3.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.b4.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b4.text
-            binding.text.text = "" + binding.text.text + binding.b4.text
-            Toast.makeText(this,"${binding.b4.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.b5.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b5.text
-            binding.text.text = "" + binding.text.text + binding.b5.text
-            Toast.makeText(this,"${binding.b5.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.b6.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b6.text
-            binding.text.text = "" + binding.text.text + binding.b6.text
-            Toast.makeText(this,"${binding.b6.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.b7.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b7.text
-            binding.text.text = "" + binding.text.text + binding.b7.text
-            Toast.makeText(this,"${binding.b7.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.b8.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b8.text
-            binding.text.text = "" + binding.text.text + binding.b8.text
-            Toast.makeText(this,"${binding.b8.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.b9.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.b9.text
-            binding.text.text = "" + binding.text.text + binding.b9.text
-            Toast.makeText(this,"${binding.b9.text}",Toast.LENGTH_SHORT).show()
-        }
-        binding.bn.setOnClickListener {
-            binding.textView.text = "" + binding.textView.text + binding.bn.text
-            binding.text.text = "" + binding.text.text + binding.bn.text
-            Toast.makeText(this,"${binding.bn.text}",Toast.LENGTH_SHORT).show()
-            binding.bn.isEnabled=false
+        for (button in arrayOfButtonNumbers){
+            button.setOnClickListener {
+                binding.textView.text = "" + binding.textView.text + button.text
+                x += button.text
+                Toast.makeText(this,"${button.text}",Toast.LENGTH_SHORT).show()
+
+            }
         }
 
-        binding.ba.setOnClickListener {
-            beClick()
-            Toast.makeText(this,"${binding.ba.text}",Toast.LENGTH_SHORT).show()
-            if ( binding.text.text!="") {
+
+        binding.bDot.setOnClickListener {
+            binding.textView.text = "" + binding.textView.text + binding.bDot.text
+            x += binding.bDot.text
+            Toast.makeText(this,"${binding.bDot.text}",Toast.LENGTH_SHORT).show()
+            binding.bDot.isEnabled=false
+        }
+
+        binding.bAdd.setOnClickListener {
+            bEqual_bDot_Clickable()
+            Toast.makeText(this,"${binding.bAdd.text}",Toast.LENGTH_SHORT).show()
+            if ( x!="") {
                 flag = true
-                a = (binding.text.text.toString()).toFloat()
-                binding.text.text = ""
+                a = (x.toString()).toFloat()
+                x = ""
                 binding.textView.text = "$a+"
                 operator = "+"
             }
-            noClick()
+            operatorsUnClickable()
         }
-        binding.bd.setOnClickListener {
-            beClick()
-            Toast.makeText(this,"${binding.bd.text}",Toast.LENGTH_SHORT).show()
-            if ( binding.text.text!="") {
+        binding.bDiv.setOnClickListener {
+            bEqual_bDot_Clickable()
+            Toast.makeText(this,"${binding.bDiv.text}",Toast.LENGTH_SHORT).show()
+            if (x!="") {
                 flag = true
-                a = (binding.text.text.toString()).toFloat()
-                binding.text.text = ""
+                a = (x.toString()).toFloat()
+                x = ""
                 binding.textView.text = "$a/"
                 operator = "/"
             }
-            noClick()
+            operatorsUnClickable()
         }
-        binding.bmul.setOnClickListener {
-            beClick()
-            Toast.makeText(this,"${binding.bmul.text}",Toast.LENGTH_SHORT).show()
-            if ( binding.text.text!="") {
+        binding.bMul.setOnClickListener {
+            bEqual_bDot_Clickable()
+            Toast.makeText(this,"${binding.bMul.text}",Toast.LENGTH_SHORT).show()
+            if (x!="") {
                 flag = true
-                a = (binding.text.text.toString()).toFloat()
-                binding.text.text = ""
+                a = (x.toString()).toFloat()
+                x = ""
                 binding.textView.text = "$a*"
                 operator = "*"
             }
-            noClick()
+            operatorsUnClickable()
         }
-        binding.bmin.setOnClickListener {
-            beClick()
-            Toast.makeText(this,"${binding.bmin.text}",Toast.LENGTH_SHORT).show()
-            if ( binding.text.text!="") {
+        binding.bMinus.setOnClickListener {
+            bEqual_bDot_Clickable()
+            Toast.makeText(this,"${binding.bMinus.text}",Toast.LENGTH_SHORT).show()
+            if ( x!="") {
                 flag = true
-                a = (binding.text.text.toString()).toFloat()
-                binding.text.text = ""
+                a = (x.toString()).toFloat()
+                x = ""
                 binding.textView.text = "$a-"
                 operator = "-"
             }
-            noClick()
+            operatorsUnClickable()
         }
 
-        binding.be.setOnClickListener {
-            Click()
-            binding.bn.isEnabled=true
-            binding.be.isClickable=false
-            Toast.makeText(this,"${binding.be.text}",Toast.LENGTH_SHORT).show()
-            if (flag && binding.text.text!="") {
-                b = binding.text.text.toString().toFloat()
+        binding.bEqual.setOnClickListener {
+            operatorsClickable()
+            binding.bDot.isEnabled=true
+            binding.bEqual.isClickable=false
+            Toast.makeText(this,"${binding.bEqual.text}",Toast.LENGTH_SHORT).show()
+            if (flag && x!="") {
+                b = x.toString().toFloat()
                 if (operator == "+") {
-                    binding.text.text = (a + b).toString()
+                    x = (a + b).toString()
                     binding.textView.text =
-                        "" + binding.textView.text + binding.be.text + binding.text.text
+                        "" + binding.textView.text + binding.bEqual.text + x
                 }
                 if (operator == "-") {
-                    binding.text.text = (a - b).toString()
+                    x = (a - b).toString()
                     binding.textView.text =
-                        "" + binding.textView.text + binding.be.text + binding.text.text
+                        "" + binding.textView.text + binding.bEqual.text + x
                 }
                 if (operator == "*") {
-                    binding.text.text = (a * b).toString()
+                    x = (a * b).toString()
                     binding.textView.text =
-                        "" + binding.textView.text + binding.be.text + binding.text.text
+                        "" + binding.textView.text + binding.bEqual.text + x
                 }
                 if (operator == "/") {
                     if (b != 0F) {
-                        binding.text.text = (a / b).toString()
+                        x = (a / b).toString()
                         binding.textView.text =
-                            "" + binding.textView.text + binding.be.text + binding.text.text
+                            "" + binding.textView.text + binding.bEqual.text + x
                     } else {
                         Toast.makeText(this,"Divide by zero",Toast.LENGTH_SHORT).show()
                         delete()
@@ -185,30 +153,30 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private  fun noClick(){
-        binding.ba.isClickable=false
-        binding.bd.isClickable=false
-        binding.bmin.isClickable=false
-        binding.bmul.isClickable=false
+    private  fun operatorsUnClickable(){
+        binding.bAdd.isClickable=false
+        binding.bDiv.isClickable=false
+        binding.bMinus.isClickable=false
+        binding.bMul.isClickable=false
     }
 
-    private  fun Click(){
-        binding.ba.isClickable=true
-        binding.bd.isClickable=true
-        binding.bmin.isClickable=true
-        binding.bmul.isClickable=true
+    private  fun operatorsClickable(){
+        binding.bAdd.isClickable=true
+        binding.bDiv.isClickable=true
+        binding.bMinus.isClickable=true
+        binding.bMul.isClickable=true
     }
 
-    private fun beClick(){
-        binding.be.isClickable=true
-        binding.bn.isEnabled=true
+    private fun bEqual_bDot_Clickable(){
+        binding.bEqual.isClickable=true
+        binding.bDot.isEnabled=true
     }
 
     private fun textSize() {
         val arrayOfButtons= arrayListOf(binding.b1,binding.b0
             ,binding.b4,binding.b5,binding.b6,binding.b7,binding.b8
-            ,binding.b9,binding.b2,binding.b3,binding.bn ,binding.bmul
-            ,binding.ba,binding.bmin,binding.bd,binding.be)
+            ,binding.b9,binding.b2,binding.b3,binding.bDot ,binding.bMul
+            ,binding.bAdd,binding.bMinus,binding.bDiv,binding.bEqual)
         for (button in arrayOfButtons){
             button.textSize=30F
         }

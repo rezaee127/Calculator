@@ -18,7 +18,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:text=""
+        android:text="0"
         android:textColor="@color/white"
         tools:layout_editor_absoluteX="34dp"
         tools:layout_editor_absoluteY="37dp" />
@@ -33,6 +33,7 @@
         <Button
             android:backgroundTint="@color/black2"
             android:id="@+id/text"
+            android:text=""
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="2dp"
@@ -83,7 +84,7 @@
 
         <Button
             android:backgroundTint="@color/black2"
-            android:id="@+id/bd"
+            android:id="@+id/bDiv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -124,7 +125,7 @@
 
         <Button
             android:backgroundTint="@color/black2"
-            android:id="@+id/bmul"
+            android:id="@+id/bMul"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -164,7 +165,7 @@
 
         <Button
             android:backgroundTint="@color/black2"
-            android:id="@+id/bmin"
+            android:id="@+id/bMinus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -179,7 +180,7 @@
 
 
         <Button
-            android:id="@+id/bn"
+            android:id="@+id/bDot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -196,7 +197,7 @@
 
         <Button
             android:backgroundTint="@color/black2"
-            android:id="@+id/be"
+            android:id="@+id/bEqual"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -205,7 +206,7 @@
 
         <Button
             android:backgroundTint="@color/black2"
-            android:id="@+id/ba"
+            android:id="@+id/bAdd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
