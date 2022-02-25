@@ -107,6 +107,7 @@ class MainActivity : AppCompatActivity() {
                 binding.textView.text = "$a+"
                 operator = "+"
             }
+            noClick()
         }
         binding.bd.setOnClickListener {
             binding.bn.isEnabled=true
@@ -118,6 +119,7 @@ class MainActivity : AppCompatActivity() {
                 binding.textView.text = "$a/"
                 operator = "/"
             }
+            noClick()
         }
         binding.bmul.setOnClickListener {
             binding.bn.isEnabled=true
@@ -129,6 +131,7 @@ class MainActivity : AppCompatActivity() {
                 binding.textView.text = "$a*"
                 operator = "*"
             }
+            noClick()
         }
         binding.bmin.setOnClickListener {
             binding.bn.isEnabled=true
@@ -140,9 +143,11 @@ class MainActivity : AppCompatActivity() {
                 binding.textView.text = "$a-"
                 operator = "-"
             }
+            noClick()
         }
 
         binding.be.setOnClickListener {
+            Click()
             binding.bn.isEnabled=true
             Toast.makeText(this,"${binding.be.text}",Toast.LENGTH_SHORT).show()
             if (flag && binding.text.text!="") {
@@ -179,6 +184,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    private  fun noClick(){
+        binding.ba.isClickable=false
+        binding.bd.isClickable=false
+        binding.bmin.isClickable=false
+        binding.bmul.isClickable=false
+    }
+
+    private  fun Click(){
+        binding.ba.isClickable=true
+        binding.bd.isClickable=true
+        binding.bmin.isClickable=true
+        binding.bmul.isClickable=true
+    }
 
     private fun textSize() {
         val arrayOfButtons= arrayListOf(binding.b1,binding.b0
