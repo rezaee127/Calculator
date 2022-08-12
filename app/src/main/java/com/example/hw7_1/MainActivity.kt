@@ -3,18 +3,17 @@ package com.example.hw7_1
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.example.hw7_1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    var a = 0F
-    var b = 0F
-    var x="0"
-    var operator = ""
-    var flag = false
-    lateinit var binding: ActivityMainBinding
+    private var a = 0F
+    private var b = 0F
+    private var x="0"
+    private var operator = ""
+    private var flag = false
+    private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"${binding.bAdd.text}",Toast.LENGTH_SHORT).show()
             if ( x!="") {
                 flag = true
-                a = (x.toString()).toFloat()
+                a = x.toFloat()
                 x = ""
                 binding.textView.text = "$a+"
                 operator = "+"
@@ -82,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"${binding.bDiv.text}",Toast.LENGTH_SHORT).show()
             if (x!="") {
                 flag = true
-                a = (x.toString()).toFloat()
+                a = x.toFloat()
                 x = ""
                 binding.textView.text = "$a/"
                 operator = "/"
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"${binding.bMul.text}",Toast.LENGTH_SHORT).show()
             if (x!="") {
                 flag = true
-                a = (x.toString()).toFloat()
+                a = x.toFloat()
                 x = ""
                 binding.textView.text = "$a*"
                 operator = "*"
@@ -106,7 +105,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"${binding.bMinus.text}",Toast.LENGTH_SHORT).show()
             if ( x!="") {
                 flag = true
-                a = (x.toString()).toFloat()
+                a = x.toFloat()
                 x = ""
                 binding.textView.text = "$a-"
                 operator = "-"
@@ -120,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             binding.bEqual.isClickable=false
             Toast.makeText(this,"${binding.bEqual.text}",Toast.LENGTH_SHORT).show()
             if (flag && x!="") {
-                b = x.toString().toFloat()
+                b = x.toFloat()
                 if (operator == "+") {
                     x = (a + b).toString()
                     binding.textView.text =
