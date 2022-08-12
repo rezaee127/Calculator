@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"${binding.bAdd.text}",Toast.LENGTH_SHORT).show()
             if ( x!="") {
                 flag = true
-                a = x.toFloat()
+                a = (x.toString()).toFloat()
                 x = ""
                 binding.textView.text = "$a+"
                 operator = "+"
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"${binding.bDiv.text}",Toast.LENGTH_SHORT).show()
             if (x!="") {
                 flag = true
-                a = x.toFloat()
+                a = (x.toString()).toFloat()
                 x = ""
                 binding.textView.text = "$a/"
                 operator = "/"
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"${binding.bMul.text}",Toast.LENGTH_SHORT).show()
             if (x!="") {
                 flag = true
-                a = x.toFloat()
+                a = (x.toString()).toFloat()
                 x = ""
                 binding.textView.text = "$a*"
                 operator = "*"
@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"${binding.bMinus.text}",Toast.LENGTH_SHORT).show()
             if ( x!="") {
                 flag = true
-                a = x.toFloat()
+                a = (x.toString()).toFloat()
                 x = ""
                 binding.textView.text = "$a-"
                 operator = "-"
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             binding.bEqual.isClickable=false
             Toast.makeText(this,"${binding.bEqual.text}",Toast.LENGTH_SHORT).show()
             if (flag && x!="") {
-                b = x.toFloat()
+                b = x.toString().toFloat()
                 if (operator == "+") {
                     x = (a + b).toString()
                     binding.textView.text =
